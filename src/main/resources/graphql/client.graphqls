@@ -1,0 +1,22 @@
+extend type Query {
+    getClients: [Client]!
+    findClient(id: ID!): Client
+}
+
+extend type Mutation {
+    persistClient(client: ClientDTO!): Client!
+    deleteClient(id: ID!): Boolean!
+}
+
+type Client {
+    id: ID
+    name: String
+    email: String
+    purchaseHistory: [Purchase]!
+}
+
+input ClientDTO {
+    id: ID
+    name: String!
+    email: String!
+}

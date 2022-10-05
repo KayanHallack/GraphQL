@@ -1,0 +1,33 @@
+extend type Query {
+    getPurchases(page: Int = 0, size:Int = 10): [Purchase]!
+    getPurchaseHistory(clientId: ID!): [Purchase]!
+}
+
+extend type Mutation {
+    purchase(purchase: PurchaseDTO!): Purchase!
+}
+
+type Purchase {
+    id: ID
+    date: ZonedDateTime!
+    quantity: Int!
+    status: Status!
+    clientId: ID!
+    client: Client!
+    productId: ID!
+    product: Product!
+}
+
+input PurchaseDTO {
+    id: ID
+    quantity: Int!
+    status: Status!
+    clientId: ID!
+    productId: ID!
+}
+
+enum Status {
+    PENDING
+    APPROVED
+    COMPLETED
+}

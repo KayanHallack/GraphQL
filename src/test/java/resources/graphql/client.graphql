@@ -1,0 +1,7 @@
+{
+    getClients {
+        id
+        name
+        email
+    }
+}

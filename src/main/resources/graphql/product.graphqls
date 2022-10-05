@@ -1,0 +1,21 @@
+extend type Query {
+    getProducts: [Product]!
+    findProduct(id: ID!): Product
+}
+
+extend type Mutation {
+    persistProduct(product: ProductDTO!): Product!
+    deleteProduct(id: ID!): Boolean!
+}
+
+type Product {
+    id: ID
+    name: String
+    value: Float
+}
+
+input ProductDTO {
+    id: ID
+    name: String!
+    value: Float!
+}

@@ -1,0 +1,9 @@
+type Query {
+    helloWorld:String
+}
+
+type Mutation {
+
+}
+
+scalar ZonedDateTime
